@@ -30,16 +30,20 @@ int main(void) {
 	scanf(" %s", filename);
 	//printf("%s", filename);
 	int brojStudenata = izbrojiStudente(filename);
-	printf("Broj studenata u datoteci je: %d \n",brojStudenata );
+	if (brojStudenata >= 0) {
+		printf("Broj studenata u datoteci je: %d \n", brojStudenata);
+	}
 
+	
 	nizStudenata = (student*)malloc(brojStudenata * sizeof(student));
-	if (nizStudenata == NULL) {
+	
+	/*if (nizStudenata == NULL) {
 		printf("Memorija nije alocirana!\n");
 		exit(0);
 	}
 	else {
 		printf("Memorija alocirana!\n");
-	}
+	}*/
 
 	unosStudenata(brojStudenata, nizStudenata,filename);
 	int maxBrBodova = nadiMaxBodove(nizStudenata, brojStudenata);
@@ -82,7 +86,7 @@ void unosStudenata(int brojStudenata, student* nizStudenata, char* filename)
 	int i;
 	for (i = 0; i < brojStudenata; i++) {
 		fscanf(fp, " %s %s %d", nizStudenata[i].ime, nizStudenata[i].prezime, &nizStudenata[i].bodovi);
-		printf(" %s %s %d \n", nizStudenata[i].ime, nizStudenata[i].prezime, nizStudenata[i].bodovi);
+		//printf(" %s %s %d \n", nizStudenata[i].ime, nizStudenata[i].prezime, nizStudenata[i].bodovi);
 		}
 	fclose(fp);
 }
