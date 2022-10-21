@@ -1,0 +1,4 @@
+1. Izbjegavat void funkcije jer nemaju return vrijednost.
+2. Izbjegavat funkciju exit, koristit return...
+3. Nakon korištenja malloc-a, oslobodit memoriju sa free funkcijon.
+4. Deklarirat sve varijable i postavit in vrijednost 0 ili NULL.
