@@ -18,5 +18,8 @@
     <ClCompile Include="kod2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="zad21.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

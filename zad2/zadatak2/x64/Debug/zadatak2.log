@@ -1,7 +1,5 @@
 ﻿  kod2.c
-C:\Users\Toni\strukture-podataka\zad2\zadatak2\kod2.c(45,33): warning C4047: 'function': 'Pozicija *' differs in levels of indirection from 'Pozicija'
-C:\Users\Toni\strukture-podataka\zad2\zadatak2\kod2.c(45,28): warning C4024: 'NaPocetak': different types for formal and actual parameter 1
-C:\Users\Toni\strukture-podataka\zad2\zadatak2\kod2.c(58,28): warning C4047: 'function': 'Pozicija *' differs in levels of indirection from 'Pozicija'
-C:\Users\Toni\strukture-podataka\zad2\zadatak2\kod2.c(58,23): warning C4024: 'NaKraj': different types for formal and actual parameter 1
-C:\Users\Toni\strukture-podataka\zad2\zadatak2\kod2.c(82,24): warning C4047: '=': 'Pozicija' differs in levels of indirection from 'Pozicija *'
+  zad21.c
+  Generating Code...
+C:\Users\Toni\strukture-podataka\zad2\zadatak2\zad21.c(101): warning C4716: 'NaPocetak': must return a value
   zadatak2.vcxproj -> C:\Users\Toni\strukture-podataka\zad2\zadatak2\x64\Debug\zadatak2.exe

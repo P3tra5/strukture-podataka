@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+/*#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -22,7 +22,7 @@ typedef struct osoba {
 }osoba;
 
 Pozicija NaPocetak(Pozicija*);
-int NaKraj(Pozicija*);
+int NaKraj(osoba, Pozicija);
 int IspisListe(Pozicija);
 
 int main(void) {
@@ -55,7 +55,12 @@ int main(void) {
 
 		}
 		if (naredba == UNOS_NA_KRAJ) {
-			int c = NaKraj(Head.next);
+			osoba Nova;
+			printf("Unesite ime i prezime: ");
+			scanf("%s %s", Nova.ime, Nova.prezime);
+			printf("Unesite godinu rodenja: ");
+			scanf("%d", &Nova.godina_rodenja);
+			int c=NaKraj(Nova, Head.next);
 		}
 		
 		
@@ -84,18 +89,16 @@ Pozicija NaPocetak(Pozicija* Head_Next){
 	return Nova;
 }
 
-int NaKraj(Pozicija* Head_Next) {
-
-	osoba* Nova = (osoba*)malloc(sizeof(osoba));
-	printf("Unesite ime i prezime: ");
-	scanf("%s %s", Nova->ime, Nova->prezime);
-	printf("Unesite godinu rodenja: ");
-	scanf("%d", &Nova->godina_rodenja);
-	while ((*Head_Next)->next != NULL) {
-		*Head_Next=(* Head_Next)->next;
+int NaKraj(osoba Unos, Pozicija Head_Next) {
+	Pozicija P;
+	
+	while (Head_Next->next != NULL) {
+		Head_Next=Head_Next->next;
 	}
-	*Head_Next = Nova;
-	Nova->next = NULL;
+	P = (Pozicija)malloc(sizeof(osoba));
+	*P = Unos;
+	Head_Next->next = P;
+	P->next = NULL;
 	
 	return USPJESNO_IZVRSENO;
 
@@ -108,4 +111,4 @@ int IspisListe(Pozicija Head_Next) {
 	}
 	printf("Kraj liste.");
 	return USPJESNO_IZVRSENO;
-}
+}*/
