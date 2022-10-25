@@ -53,7 +53,10 @@ int main(void) {
 			scanf("%s %s", Nova.ime, Nova.prezime);
 			printf("Unesite godinu rodenja: ");
 			scanf("%d", &Nova.godina_rodenja);
-			int c = NaPocetak(&Head.next, Nova);
+			if (NaPocetak(&Head.next, Nova) == USPJESNO_IZVRSENO) {
+				printf("Uspjesno izvrseno.\n");
+			}
+			else printf("Nije izvrseno.\n");
 		}
 
 		if (naredba == UNOS_NA_KRAJ) {
@@ -62,32 +65,43 @@ int main(void) {
 			scanf("%s %s", Nova.ime, Nova.prezime);
 			printf("Unesite godinu rodenja: ");
 			scanf("%d", &Nova.godina_rodenja);
-			int e = NaKraj(&Head, Nova);
+			if (NaKraj(&Head, Nova) == USPJESNO_IZVRSENO) {
+				printf("Uspjesno izvrseno.\n");
+			}
+			else printf("Nije izvrseno.\n");
 		}
 		if (naredba == ISPIS_LISTE) {
-			int b = IspisListe(Head.next);
+			if (IspisListe(Head.next) == USPJESNO_IZVRSENO) {
+				printf("Uspjesno izvrseno.\n");
+			}
+			else printf("Nije izvrseno.\n");
 		}
 		if (naredba == NADI_ELEMENT) {
 			osoba Trazena;
 			printf("Unesi ime osobe koju trazis: ");
 			scanf("%s", Trazena.ime);
-			int g = NadiElement(Head.next,Trazena);
+			if (NadiElement(Head.next, Trazena) == USPJESNO_IZVRSENO) {
+				printf("Uspjesno izvrseno.\n");
+			}
+			else printf("Nije izvrseno.\n");
 		}
 		if (naredba == IZBRISI_ELEMENT) {
 			osoba Trazena;
 			printf("Unesi ime osobe koju zelis izbrisat: ");
 			scanf("%s", Trazena.ime);
-			int s = IzbrisiElement(Head.next, Trazena);
+			if (strcmp((Head.next->ime), Trazena.ime) == 0) {
+				Head.next = (Head.next->next);
+				printf("Izbrisano.\n");
+			}
+			else if(IzbrisiElement(Head.next, Trazena) == USPJESNO_IZVRSENO){
+				printf("Uspjesno izvrseno.\n");
+			}
 		}
 		
 		printf("Unesite broj 5 za novu naredbu a 6 za prekid programa: ");
 		scanf("%d", &rad_programa);
 		
 	}
-
-
-
-
 
 	return USPJESNO_ZAVRSEN_PROGRAM;
 }
@@ -97,6 +111,8 @@ int NaPocetak(Pozicija* Head_Next, osoba Unos) {
 	*Nova = Unos;
 	Nova->next = *Head_Next;
 	*Head_Next = Nova;
+
+	return USPJESNO_IZVRSENO;
 
 }
 int IspisListe(Pozicija Head_Next) {
@@ -124,19 +140,25 @@ int NadiElement(Pozicija Head_Next, osoba Trazena) {
 	while (Head_Next != NULL) {
 		
 		if (strcmp(Head_Next->ime, Trazena.ime) == 0) {
-			printf("Trazena osoba se preziva %s", Head_Next->prezime);
+			printf("Trazena osoba se preziva %s\n", Head_Next->prezime);
 		}
-		else printf("Nisam nasao");
 		Head_Next = Head_Next->next;
 	}
 	return USPJESNO_IZVRSENO;
 }
 
 int IzbrisiElement(Pozicija P, osoba Trazena) {
-	while (strcmp(((P->next)->ime),Trazena.ime) != 0) {
-		P = P->next;
-	}
-	P->next = (P->next)->next;
+	
+	//else {
+		while (strcmp((P->next->ime), Trazena.ime) != 0 && P->next->next != NULL) {
+			P = P->next;
+		}
+		if (strcmp((P->next->ime), Trazena.ime) == 0) {
+			P->next = (P->next)->next;
+			printf("Izbrisano.\n");
+		}
+		else printf("Ta osoba ne postoji u listi.\n");
+	//}
 	return USPJESNO_IZVRSENO;
 
 }
