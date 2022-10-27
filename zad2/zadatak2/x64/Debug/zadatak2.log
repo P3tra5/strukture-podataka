@@ -2,6 +2,6 @@
 C:\Users\Toni\strukture-podataka\zad2\zadatak2\zad21.c(90,17): warning C4553: '==': result of expression not used; did you intend '='?
 C:\Users\Toni\strukture-podataka\zad2\zadatak2\zad21.c(114,17): warning C4553: '==': result of expression not used; did you intend '='?
 C:\Users\Toni\strukture-podataka\zad2\zadatak2\zad21.c(131,17): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\Toni\strukture-podataka\zad2\zadatak2\zad21.c(202): warning C4715: 'NadiElement': not all control paths return a value
 C:\Users\Toni\strukture-podataka\zad2\zadatak2\zad21.c(213): warning C4715: 'NadiPrethodni': not all control paths return a value
+C:\Users\Toni\strukture-podataka\zad2\zadatak2\zad21.c(202): warning C4715: 'NadiElement': not all control paths return a value
   zadatak2.vcxproj -> C:\Users\Toni\strukture-podataka\zad2\zadatak2\x64\Debug\zadatak2.exe

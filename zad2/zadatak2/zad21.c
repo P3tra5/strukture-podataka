@@ -144,8 +144,8 @@ int main(void) {
 		}
 
 		if (naredba == SORTIRAJ_LISTU) {
-			if (SortirajListu(&Head) == USPJESNO_IZVRSENO) {
-				printf("Uspjesno izvrseno");
+			if (SortirajListu(Head.next) == USPJESNO_IZVRSENO) {
+				printf("Uspjesno izvrseno\n");
 			}
 			else printf("Greska pri unosu!");
 
@@ -248,11 +248,11 @@ int IzbrisiElement(Pozicija P, osoba Trazena) {
 int SortirajListu(Pozicija P) {
 	Pozicija i, j, temp,zadnji;
 	zadnji = NULL;
-	while (P->next != NULL) {
+	while (P->next != zadnji) {
 		i = P;
 		j = P->next;
-		while (j->next != NULL){
-			if (strcmp(i->prezime, j->prezime) > 0) {
+		while (j->next != zadnji){
+			if (strcmp(j->prezime, j->next->prezime)>0) {
 				temp = j->next;
 				i->next = temp;
 				j->next = temp->next;
