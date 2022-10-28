@@ -1,0 +1,7 @@
+﻿  zad21.c
+C:\Users\student\Documents\Demorgan Freeman\vj3\zad21.c(93,22): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\student\Documents\Demorgan Freeman\vj3\zad21.c(120,22): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\student\Documents\Demorgan Freeman\vj3\zad21.c(140,18): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\student\Documents\Demorgan Freeman\vj3\zad21.c(234): warning C4715: 'NadiPrethodni': not all control paths return a value
+C:\Users\student\Documents\Demorgan Freeman\vj3\zad21.c(307): warning C4716: 'BrisiSve': must return a value
+  zad3.vcxproj -> C:\Users\student\Documents\Demorgan Freeman\vj3\zad3\Debug\zad3.exe
