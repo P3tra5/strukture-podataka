@@ -1,0 +1,6 @@
+﻿  zad32.c
+C:\Users\Toni\strukture-podataka\zad32\zad32\zad32.c(94,22): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Toni\strukture-podataka\zad32\zad32\zad32.c(121,22): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Toni\strukture-podataka\zad32\zad32\zad32.c(141,18): warning C4553: '==': result of expression not used; did you intend '='?
+C:\Users\Toni\strukture-podataka\zad32\zad32\zad32.c(244): warning C4715: 'NadiPrethodni': not all control paths return a value
+  zad32.vcxproj -> C:\Users\Toni\strukture-podataka\zad32\zad32\x64\Debug\zad32.exe
