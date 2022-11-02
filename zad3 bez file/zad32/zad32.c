@@ -14,6 +14,8 @@
 #define DODAJ_ISPRED (9)
 #define SORTIRAJ_LISTU (10)
 #define BRISI_SVE (11)
+#define UPIS_DAT (12)
+#define CITA_DAT (13)
 #define USPJESNO_IZVRSENO (15)
 #define NEUSPJESNO_IZVRSENO (16)
 #define NIJE_PRONADEN (99)
@@ -39,6 +41,8 @@ int DodajIza(osoba, Pozicija, Pozicija);
 int DodajIspred(osoba, Pozicija, Pozicija);
 int SortirajListu(Pozicija);
 int BrisiSve(Pozicija);
+int UpisUDat(Pozicija, char*);
+int IspisIzDat(char*);
 
 int main(void) {
 
@@ -47,6 +51,7 @@ int main(void) {
 	Head.prezime[MAX_IME] = (0);
 	Head.godina_rodenja = 0;
 	Head.next = NULL;
+	char imedatoteke[MAX_IME] = { 0 };
 	int rad_programa = U_TOKU;
 	while (rad_programa == U_TOKU) {
 
@@ -54,6 +59,7 @@ int main(void) {
 		printf("Unesite broj za naredbu.\n1-Unos na pocetak liste:\n2-Unos na kraj liste\n3-Ispis liste:\n");
 		printf("4-Nadi element prema imenu:\n7-Izbrisi element:\n8-Dodaj iza odredenog elementa\n");
 		printf("9-Dodaj ispred elementa prema imenu:\n10-Sortiraj listu prema prezimenu:\n11-Izbrisi cijelu listu\n");
+		printf("12-Upisuje listu u datoteku:\n13-Cita listu iz datoteke:\n\n");
 
 		scanf("%d", &naredba);
 
@@ -169,6 +175,18 @@ int main(void) {
 			}
 			else printf("Memorija nije ociscena!\n");
 
+		}
+		
+		else if (naredba == UPIS_DAT) {
+			printf("Unesite ime datoteke: ");
+			scanf(" %s", imedatoteke);
+			UpisUDat(Head.next, imedatoteke);
+		}
+		
+		else if (naredba == CITA_DAT) {
+			printf("Unesite ime datoteke: ");
+			scanf(" %s", imedatoteke);
+			IspisIzDat(imedatoteke);
 		}
 
 		else {
@@ -325,5 +343,39 @@ int BrisiSve(Pozicija head)
 	}
 	return USPJESNO_IZVRSENO;
 
+}
+
+int UpisUDat(Pozicija p, char* imedatoteke) {
+	FILE* fp = NULL;
+	fp = fopen(imedatoteke, "w");
+	if (fp == NULL)
+	{
+		printf("Greska u otvaranju datoteke!\n");
+		return NIJE_PRONADEN;
+	}
+	while (p != NULL) {
+		fprintf(fp, "%s\t %s\t %10d\n", p->ime, p->prezime, p->godina_rodenja);
+		p = p->next;
+	}
+	fclose(fp);
+
+	return USPJESNO_IZVRSENO;
+}
+
+int IspisIzDat(char* imedatoteke) {
+	char niz[MAX_IME];
+	FILE* fp = NULL;
+	fp = fopen(imedatoteke, "r");
+	if (fp == NULL)
+	{
+		printf("Greska u otvaranju datoteke!\n");
+		return NIJE_PRONADEN;
+	}
+	while (fgets(niz, MAX_IME, fp) != NULL) {
+		printf(" %s", niz);
+	}
+	fclose(fp);
+
+	return USPJESNO_IZVRSENO;
 }
 //Dodat slucaj ako ne postoji iza ili ispred koga se dodaje
