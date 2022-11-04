@@ -3,6 +3,27 @@
 #include <stdio.h>
 #include <string.h>
 
+/*enum ERROR_CODE{
+    USPJESNO_ZAVRSEN_PROGRAM,
+    UNOS_NA_POCETAK,
+    UNOS_NA_KRAJ,
+    ISPIS_LISTE,
+    NADI_ELEMENT,
+    U_TOKU,
+    IZBRISI_ELEMENT = 7,
+    DODAJ_IZA,
+    DODAJ_ISPRED,
+    SORTIRAJ_LISTU,
+    BRISI_SVE,
+    UPIS_DAT,
+    CITA_DAT,
+    USPJESNO_IZVRSENO = 15,
+    NEUSPJESNO_IZVRSENO,
+    NIJE_PRONADEN = 99,
+    PRONADEN = 100,
+    MAX_IME = 1021
+};*/
+
 #define USPJESNO_ZAVRSEN_PROGRAM (0)
 #define UNOS_NA_POCETAK (1)
 #define UNOS_NA_KRAJ (2)
@@ -62,10 +83,14 @@ int main(void) {
 			"1-Unos na pocetak liste:\n"
 			"2-Unos na kraj liste\n"
 			"3-Ispis liste:\n"
+			"4-Nadi element prema imenu:\n"
+			"7-Izbrisi element:\n"
+			"8-Dodaj iza odredenog elementa\n"
+			"9-Dodaj ispred elementa prema imenu:\n"
+			"10-Sortiraj listu prema prezimenu:\n"
+			"11-Izbrisi cijelu listu\n"
+			"12-Upisuje listu u datoteku:\n13-Cita listu iz datoteke:\n\n"
 		);
-		printf("4-Nadi element prema imenu:\n7-Izbrisi element:\n8-Dodaj iza odredenog elementa\n");
-		printf("9-Dodaj ispred elementa prema imenu:\n10-Sortiraj listu prema prezimenu:\n11-Izbrisi cijelu listu\n");
-		printf("12-Upisuje listu u datoteku:\n13-Cita listu iz datoteke:\n\n");
 
 		scanf(" %d", &naredba);
 
