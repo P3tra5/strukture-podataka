@@ -42,47 +42,53 @@ int DodajIspred(osoba, Pozicija, Pozicija);
 int SortirajListu(Pozicija);
 int BrisiSve(Pozicija);
 int UpisUDat(Pozicija, char*);
-int IspisIzDat(char*);
+int IspisIzDat(Pozicija, char*);
 
 int main(void) {
 
-	osoba Head;
-	Head.ime[MAX_IME] = (0);
-	Head.prezime[MAX_IME] = (0);
-	Head.godina_rodenja = 0;
-	Head.next = NULL;
+	osoba Head = {
+		.ime = {0},
+		.prezime = {0},
+		.godina_rodenja = 0,
+		.next = NULL
+	};
 	char imedatoteke[MAX_IME] = { 0 };
 	int rad_programa = U_TOKU;
 	while (rad_programa == U_TOKU) {
 
 		int naredba = 0;
-		printf("Unesite broj za naredbu.\n1-Unos na pocetak liste:\n2-Unos na kraj liste\n3-Ispis liste:\n");
+		printf(
+			"Unesite broj za naredbu.\n"
+			"1-Unos na pocetak liste:\n"
+			"2-Unos na kraj liste\n"
+			"3-Ispis liste:\n"
+		);
 		printf("4-Nadi element prema imenu:\n7-Izbrisi element:\n8-Dodaj iza odredenog elementa\n");
 		printf("9-Dodaj ispred elementa prema imenu:\n10-Sortiraj listu prema prezimenu:\n11-Izbrisi cijelu listu\n");
 		printf("12-Upisuje listu u datoteku:\n13-Cita listu iz datoteke:\n\n");
 
-		scanf("%d", &naredba);
+		scanf(" %d", &naredba);
 
 
 		if (naredba == UNOS_NA_POCETAK) {
 			osoba Nova;
 			printf("Unesite ime i prezime: ");
-			scanf("%s %s", Nova.ime, Nova.prezime);
+			scanf(" %s %s", Nova.ime, Nova.prezime);
 			printf("Unesite godinu rodenja: ");
-			scanf("%d", &Nova.godina_rodenja);
-			if (NaPocetak(&Head.next, Nova) == USPJESNO_IZVRSENO) {
+			scanf(" %d", &Nova.godina_rodenja);
+			if (NaPocetak(&Head, Nova) == USPJESNO_IZVRSENO) {
 				printf("Uspjesno izvrseno.\n");
 			}
 			else printf("Nije izvrseno.\n");
 		}
 
 		else if (naredba == UNOS_NA_KRAJ) {
-			osoba Nova;
+			osoba nova;
 			printf("Unesite ime i prezime: ");
-			scanf("%s %s", Nova.ime, Nova.prezime);
+			scanf("%s %s", nova.ime, nova.prezime);
 			printf("Unesite godinu rodenja: ");
-			scanf("%d", &Nova.godina_rodenja);
-			if (NaKraj(&Head, Nova) == USPJESNO_IZVRSENO) {
+			scanf("%d", &nova.godina_rodenja);
+			if (NaKraj(&Head, nova) == USPJESNO_IZVRSENO) {
 				printf("Uspjesno izvrseno.\n");
 			}
 			else printf("Nije izvrseno.\n");
@@ -171,22 +177,23 @@ int main(void) {
 
 		else if (naredba == BRISI_SVE) {
 			if (BrisiSve(Head.next) == USPJESNO_IZVRSENO) {
+				Head.next = NULL;
 				printf("Memorija ociscena\n");
 			}
 			else printf("Memorija nije ociscena!\n");
 
 		}
-		
+
 		else if (naredba == UPIS_DAT) {
 			printf("Unesite ime datoteke: ");
 			scanf(" %s", imedatoteke);
 			UpisUDat(Head.next, imedatoteke);
 		}
-		
+
 		else if (naredba == CITA_DAT) {
 			printf("Unesite ime datoteke: ");
 			scanf(" %s", imedatoteke);
-			IspisIzDat(imedatoteke);
+			IspisIzDat(&Head,imedatoteke);
 		}
 
 		else {
@@ -195,7 +202,7 @@ int main(void) {
 
 
 		printf("Unesite broj 5 za novu naredbu a 6 za prekid programa: ");
-		scanf("%d", &rad_programa);
+		scanf(" %d", &rad_programa);
 
 	}
 	if (BrisiSve(Head.next) == USPJESNO_IZVRSENO) {
@@ -206,12 +213,12 @@ int main(void) {
 	return USPJESNO_ZAVRSEN_PROGRAM;
 }
 
-int NaPocetak(Pozicija* Head_Next, osoba Unesena_Osoba) {
+int NaPocetak(Pozicija Head, osoba Unesena_Osoba) {
 	osoba* Nova_Osoba = malloc(sizeof(osoba));
 	if (Nova_Osoba != NULL) {
 		*Nova_Osoba = Unesena_Osoba;
-		Nova_Osoba->next = *Head_Next;
-		*Head_Next = Nova_Osoba;
+		Nova_Osoba->next = Head->next;
+		Head->next = Nova_Osoba;
 
 		return USPJESNO_IZVRSENO;
 	}
@@ -333,7 +340,7 @@ int BrisiSve(Pozicija head)
 {
 	Pozicija prev = head;
 
-	while (head!=NULL)
+	while (head != NULL)
 	{
 		head = head->next;
 
@@ -362,18 +369,33 @@ int UpisUDat(Pozicija p, char* imedatoteke) {
 	return USPJESNO_IZVRSENO;
 }
 
-int IspisIzDat(char* imedatoteke) {
-	char niz[MAX_IME];
+int IspisIzDat(Pozicija head, char* imedatoteke) {
+	
 	FILE* fp = NULL;
+
 	fp = fopen(imedatoteke, "r");
 	if (fp == NULL)
 	{
 		printf("Greska u otvaranju datoteke!\n");
 		return NIJE_PRONADEN;
 	}
-	while (fgets(niz, MAX_IME, fp) != NULL) {
-		printf(" %s", niz);
+
+	while (!feof(fp)) {
+		osoba Nova = {
+		.ime = {0},
+		.prezime = {0},
+		.godina_rodenja = 0,
+		.next = NULL
+		};
+		fscanf(fp, " %s %s %d", Nova.ime, Nova.prezime, &Nova.godina_rodenja);
+		
+		
+		if (NaPocetak(head, Nova) == USPJESNO_IZVRSENO) {
+			printf("Uspjesno izvrseno.\n");
+		}
+		else printf("Nije izvrseno.\n");
 	}
+	
 	fclose(fp);
 
 	return USPJESNO_IZVRSENO;
