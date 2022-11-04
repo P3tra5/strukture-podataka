@@ -38,7 +38,7 @@
 #define UPIS_DAT (12)
 #define CITA_DAT (13)
 #define USPJESNO_IZVRSENO (15)
-#define NEUSPJESNO_IZVRSENO (16)
+#define NEUSPJESNO_IZVRSENO (16) //error pa vrijednost triba bit neg?
 #define NIJE_PRONADEN (99)
 #define PRONADEN (100)
 #define MAX_IME (1021)
