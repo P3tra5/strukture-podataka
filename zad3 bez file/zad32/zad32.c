@@ -89,7 +89,8 @@ int main(void) {
 			"9-Dodaj ispred elementa prema imenu:\n"
 			"10-Sortiraj listu prema prezimenu:\n"
 			"11-Izbrisi cijelu listu\n"
-			"12-Upisuje listu u datoteku:\n13-Cita listu iz datoteke:\n\n"
+			"12-Upisuje listu u datoteku:\n"
+			"13-Cita listu iz datoteke:\n\n"
 		);
 
 		scanf(" %d", &naredba);
