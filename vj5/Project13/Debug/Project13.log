@@ -1,0 +1,13 @@
+﻿  zad4.c
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(93,27): warning C4020: 'pop': too many actual parameters
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(94,21): warning C4020: 'pop': too many actual parameters
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(99,27): warning C4020: 'pop': too many actual parameters
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(100,21): warning C4020: 'pop': too many actual parameters
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(105,27): warning C4020: 'pop': too many actual parameters
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(106,21): warning C4020: 'pop': too many actual parameters
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(111,27): warning C4020: 'pop': too many actual parameters
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(112,21): warning C4020: 'pop': too many actual parameters
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(85,1): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(126,43): warning C4029: declared formal parameter list different from definition
+C:\Users\student\Documents\Demorgan Freeman\vj4\Project10\zad4.c(136): warning C4716: 'pop': must return a value
+  Project13.vcxproj -> C:\Users\student\Documents\Demorgan Freeman\vj4\Project13\Debug\Project13.exe
