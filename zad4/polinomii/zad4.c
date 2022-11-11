@@ -1,7 +1,7 @@
 /*
-Napisati program za zbrajanje i mnoûenje polinoma.
-Koeficijenti i eksponenti se Ëitaju iz datoteke.
-Napomena: Eksponenti u datoteci nisu nuûno sortirani.
+Napisati program za zbrajanje i mno≈æenje polinoma.
+Koeficijenti i eksponenti se √®itaju iz datoteke.
+Napomena: Eksponenti u datoteci nisu nu≈æno sortirani.
 */
 
 // 1. procitati koef i bazu iz txt i staviti ih sortirano u vezanu listu
@@ -279,3 +279,7 @@ sscanf(p, " %d %d %n", &c, &e, &n);
 p += n;
 }
 */
+
+
+//provjera za sscanf i brisanje memorije
+//inicijalizacija svih variabili na 0
