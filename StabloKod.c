@@ -1,8 +1,8 @@
 /*
-Napisati program koji pomoæu vezanih listi (stabala) predstavlja strukturu direktorija.
-Omoguæiti unos novih direktorija i pod-direktorija, ispis sadržaja direktorija i
-povratak u prethodni direktorij. Toènije program treba preko menija simulirati
-korištenje DOS naredbi: 1- "md", 2 - "cd dir", 3 - "cd..", 4 - "dir" i 5 – izlaz.
+Napisati program koji pomoÃ¦u vezanih listi (stabala) predstavlja strukturu direktorija.
+OmoguÃ¦iti unos novih direktorija i pod-direktorija, ispis sadrÅ¾aja direktorija i
+povratak u prethodni direktorij. ToÃ¨nije program treba preko menija simulirati
+koriÅ¡tenje DOS naredbi: 1- "md", 2 - "cd dir", 3 - "cd..", 4 - "dir" i 5 â€“ izlaz.
 */
 
 
@@ -25,16 +25,22 @@ typedef struct Dir {
 	char Naziv[MAX_LINE];
 	P_Dir PrvoDijete;
 	P_Dir Brat;
-}Dir;typedef struct Stog* P_Stog;typedef struct Stog {
+}Dir;
+
+typedef struct Stog* P_Stog;
+typedef struct Stog {
 	P_Dir Dir;
 	P_Stog Sljedeci;
-} Stog;int DodajNaStog(P_Stog, P_Dir);
+} Stog;
+
+int DodajNaStog(P_Stog, P_Dir);
 P_Dir NoviDir(char*);
 P_Dir NadiDir(char*, P_Stog);
 int Put(P_Stog);
 P_Stog StogZadnji(P_Stog);
 int MakniSaStoga(P_Stog);
-int	Ispis_PodDirektorija(P_Stog);
+int Ispis_PodDirektorija(P_Stog);
+int deleteAll(P_Dir);
 
 
 int main(void) {
@@ -119,13 +125,14 @@ int main(void) {
 
 		}
 		else {
-			printf("Nepravilan unos. Pokšajte ponovo.\n ");
+			printf("Nepravilan unos. PokÅ¡ajte ponovo.\n ");
 
 		}
 
 
 	} while (strcmp(uputa, "exit"));
 
+	deleteAll(&Roditelj);
 	printf("Pozz");
 
 	return USPJESNO_ZAVRSEN_PROGRAM;
@@ -223,5 +230,16 @@ int Ispis_PodDirektorija(P_Stog Stog) {
 		printf("-%s \n", temp);
 
 	}
+	return USPJESNO_IZVRSENO;
+}
+
+int deleteAll(P_Dir p) {
+	if (p == NULL) {
+		return USPJESNO_IZVRSENO;
+	}
+	deleteAll(p->PrvoDijete);
+	deleteAll(p->Brat);
+	free(p);
+	
 	return USPJESNO_IZVRSENO;
 }
