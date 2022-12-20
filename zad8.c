@@ -1,5 +1,9 @@
-/*Napisati program koji omoguÊava rad s binarnim stablom pretraûivanja.
-Treba omoguÊiti unoöenje novog elementa u stablo,ispis elemenata(inorder, preorder, postorder i level order),brisanje i pronalaûenje nekog elementa.*/#define _CRT_SECURE_NO_WARNINGS
+/*Napisati program koji omogu√¶ava rad s binarnim stablom pretra≈æivanja.
+Treba omogu√¶iti uno≈°enje novog elementa u stablo,
+ispis elemenata(inorder, preorder, postorder i level order),
+brisanje i pronala≈æenje nekog elementa.*/
+
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -280,4 +284,4 @@ int IspisTrenutniLevel(Pozicija p, int lvl) {
 	}
 
 	return USPJESNO_IZVRSENO;
-}
+} 
