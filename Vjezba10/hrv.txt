@@ -1,0 +1,4 @@
+Zagreb 1000000
+Zadar 70000
+Solin 30000
+Split 200000
