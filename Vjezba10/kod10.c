@@ -29,9 +29,9 @@ typedef struct Drzava {
 
 int CitaDatDrzave(P_Drzava head);
 int NovaDrzava(char, char, P_Drzava);
-
-int Unos_Gradova(P_Drzava, char);
+int CitaDatGradovi(P_Drzava, char);
 int NoviGrad(char, int, P_Grad);
+int UnosGrada(P_Grad root, P_Grad Novi_Grad);
 
 
 
@@ -93,7 +93,7 @@ int NovaDrzava(char naziv, char file, P_Drzava Head) {
 
 }
 
-int Unos_Gradova(P_Drzava Nova_Drzava, char file) {
+int CitaDatGradovi(P_Drzava Nova_Drzava, char file) {
 	FILE* fp = NULL;
 	char buffer[MAX_LINE] = { 0 };
 	char* p = buffer;
