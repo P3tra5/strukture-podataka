@@ -1,0 +1,18 @@
+﻿  Source2.c
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(59,25): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[1024]'
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(59,18): warning C4024: 'PrintSome': different types for formal and actual parameter 2
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(73,23): warning C4047: 'return': 'P_Drzava' differs in levels of indirection from 'int'
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(91,30): warning C4047: 'return': 'P_Drzava' differs in levels of indirection from 'int'
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(94,32): warning C4047: 'function': 'P_Drzava' differs in levels of indirection from 'P_Drzava *'
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(94,27): warning C4024: 'NovaDrzava': different types for formal and actual parameter 2
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(95,36): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[1024]'
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(95,31): warning C4024: 'CitaDatGradovi': different types for formal and actual parameter 2
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(103,48): warning C4028: formal parameter 2 different from declaration
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(133,24): warning C4047: 'function': 'char *' differs in levels of indirection from 'char (*)[1024]'
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(133,12): warning C4024: 'NoviGrad': different types for formal and actual parameter 1
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(151,27): warning C4047: 'function': 'P_Grad' differs in levels of indirection from 'P_Grad *'
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(151,12): warning C4024: 'UnosGrada': different types for formal and actual parameter 1
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(156,23): warning C4028: formal parameter 1 different from declaration
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(194): warning C4715: 'UsporedbaGradova': not all control paths return a value
+C:\Users\Toni\Desktop\vj10\vj10b\10b\Source2.c(239): warning C4715: 'trazi_drzavu': not all control paths return a value
+  10b.vcxproj -> C:\Users\Toni\Desktop\vj10\vj10b\10b\x64\Debug\10b.exe
