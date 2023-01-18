@@ -12,6 +12,13 @@ enum ERROR_CODE {
 };
 
 
+typedef struct Grad* P_Grad;
+typedef struct Grad {
+	char Naziv_Grad[MAX_LINE];
+	int broj_stanovnika;
+	P_Grad next;
+}Grad;
+
 typedef struct Drzava* P_Drzava;
 typedef struct Drzava {
 	char Naziv_Drzava[MAX_LINE];
@@ -19,13 +26,6 @@ typedef struct Drzava {
 	P_Drzava D;
 	P_Grad head;
 }Drzava;
-
-typedef struct Grad* P_Grad;
-typedef struct Grad {
-	char Naziv_Grad[MAX_LINE];
-	int broj_stanovnika;
-	P_Grad next;
-}Grad;
 
 int CitaDatDrzave(P_Drzava);
 P_Drzava UnosDrzava(P_Drzava, char*, char*);
@@ -62,7 +62,7 @@ int main(void) {
 	printf("Unesi drzavu pa minimalan broj stanovnika: ");
 	scanf(" %s %d", drzava, &broj_st);
 
-	PrintSome(&Root_Drzava, &drzava, broj_st);
+	//PrintSome(&Root_Drzava, &drzava, broj_st);
 
 	return 0;
 }
@@ -101,7 +101,7 @@ P_Drzava UnosDrzava(P_Drzava root, char* Nova, char* file) { //
 	if (root == NULL)
 		{
 			root->head = NULL;
-			root->head = ProcitajDatGradovi(root->head, file);
+			root->head = CitaDatGradovi(root->head, file);
 		}
 		else if (strcmp(root->Naziv_Drzava, Nova) > 0)
 			root->L = UnosDrzava(root->L, Nova, file);
